@@ -7,9 +7,13 @@ require('app/start.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> My Portforio</title>
+    <!-- Link To boostrtap CSS -->
     <link rel="stylesheet" href="css/boot.css">
+    <!-- Link To  CSS  global style -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Link To Font Awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
     
@@ -19,11 +23,11 @@ require('app/start.php');
   
   <header>
         <nav>
-            <img src="img/logo.jpg" alt="logo">
+            <img src="img/logo.png" alt="logo">
             <ul>
                 <li><a href="index.php"class="active">Home</a></li>
-                <li><a href="project.php">Projects</a></li>
-                <li><a href="contact.php">Contact Us</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contact Us</a></li>
                 <li><a href="login.php" >Login</a></li>
             </ul>
             <div class="drop-down">
