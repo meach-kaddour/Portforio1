@@ -1,6 +1,4 @@
-<?php
-require('app/start.php');
-?>
+<?php include_once("include/connection.php");?>
 
 <!DOCTYPE html>
 <html lang="en">

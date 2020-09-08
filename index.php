@@ -11,47 +11,48 @@ require('template/header.php');
       <div class="col-md-12 text-center">
         <h2>Projects</h2>
         <hr class="star-primary"></hr>       
+      </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="card">
-          <img src="img/homepage.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Blog CMS </h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-white-50 bg-dark">Html - CSS - PHP-Bootstrap</small>
-          </div>
-        </div>
-    </div>    
-    <div class="col-md-4">
+    <div class="row">
+    <?php
+        global $db;
+        $Query="SELECT *FROM projects LIMIT 6 ";
+        $Execute = $db->query($Query);
+        
+                         
+        foreach ($Execute as $execute){
+          $idProjet=$execute['id_projet'];
+          $nameProjet=$execute['name_projet'];
+          $imageProjet=$execute['image_projet'];
+          $descriptionProjet=$execute['description_projet'];
+          $slug=$execute['slug'];
+        
+
+    ?>
+
+      <div class="col-md-4">
         <div class="card">
-          <img src="img/homepage.png" class="card-img-top" alt="...">
+          <img src="admin/upload/<?php echo $imageProjet; ?>" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <h5 class="card-title"><?php echo $nameProjet;?></h5>
+            <p class="card-text">
+             <?php
+               if(strlen($descriptionProjet) >60)
+                  {
+                    $descriptionProjet=substr($descriptionProjet,0,200)."..";
+                  }
+                echo htmlentities($descriptionProjet) ;
+             ?>
+            </p>
           </div>
           <div class="card-footer">
-            <small class="text-white-50 bg-dark">Html - CSS - PHP-Bootstrap</small>
+            <p ><a class=" text-dark" href="<?php echo $slug;?> target="_blank">View Project</a></p>
           </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card">
-          <img src="img/homepage.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-white-50 bg-dark">Html - CSS - PHP-Bootstrap</small>
-          </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
+      </div>    
     
+    <div class="clearfix"></div>
+    <?php } ?> 
   </div>
   
 </section>
