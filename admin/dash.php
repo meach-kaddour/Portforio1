@@ -1,3 +1,6 @@
+<?php 
+include_once("include/include.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,8 +31,8 @@
             <!-- aside-area -->
                 <div class="col-sm-2">  
                         <ul id="side-menu" class="nav nav-pills nav stacked" >
-                            <li ><a class="nav-link active" href="dashbord.php">Dashbord</a></li>
-                            <li ><a class="nav-link" href="addNewProject.php">Ajouter un projet</a></li>
+                            <li ><a class="nav-link active" href="dash.php">Dashbord</a></li>
+                            <li ><a class="nav-link" href="addNewProject">Ajouter un projet</a></li>
                             <li ><a class="nav-link " href="technologie.php">Technologies</a></li>
                             <li><a class="nav-link" href="../index.php"> Acceder au site</a></li>
                             <li><a class="nav-link" href="logout.php">Logout</a></li>
@@ -42,71 +45,67 @@
                     <div class="row">
                         <h1 class="text-center">Projects</h1>
                     </div>
+                    <?php
+                    echo Message(); 
+                    echo successMessage();
+                    ?>
                     <div class="container-fluid">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
                             <tr>
                                 <th>No</th>
-                                <th>Article titel</th>
-                                <th>Auteur</th>
-                                <th>Category</th>
-                                <th>Date de creation</th>
+                                <th>Nom de Projet</th>
+                                <th>Description de Projet</th>
+                                <th>Url</th>
                                 <th>Image</th>
-                                <th>Action</th>
-                                <th>Détails</th>
+                                <th>Actions</th>
                             </tr>
 
                         <?php
-                        //  global $db;
-                        //  $Query="SELECT *FROM posts ORDER BY date desc ";
-                        //  $Execute = $db->query($Query);
-                        //  $srN=0;
-                        //  foreach ($Execute as $execute){
-                        //     $idArticle=$execute['id'];
-                        //     $titleArticle=$execute['title'];
-                        //     $imageArticle=$execute['image'];
-                        //     $categoryArticle=$execute['category'];
-                        //     $auteurArticle=$execute['auteur'];
-                        //     $dateArticle=$execute['date'];
-                        //     $contentArticle=$execute['article'];
-                        //     $srN++;
+                         global $db;
+                         $Query="SELECT *FROM projects  ";
+                         $Execute = $db->query($Query);
+                         $srN=0;
+                         
+                         foreach ($Execute as $execute){
+                            $idProjet=$execute['id_projet'];
+                            $nameProjet=$execute['name_projet'];
+                            $imageProjet=$execute['image_projet'];
+                            $descriptionProjet=$execute['description_projet'];
+                            $slug=$execute['slug'];
+            
+                            $srN++;
 
                         ?>
                         <tr>
-                            <td>fg</td>
+                            <td><?php echo $srN;?></td>
+
+                            <td><?php echo $nameProjet;?></td>
+
+                            
+                            
                             <td style="color:#5E5fEB">
                                 <?php
-                            //      if(strlen($titleArticle) >20)
-                            //         {
-                            //          $titleArticle=substr($titleArticle,0,20)."..";
-                            //         }
-                            //  echo $titleArticle ;
+                                 if(strlen($descriptionProjet) >60)
+                                    {
+                                        $descriptionProjet=substr($descriptionProjet,0,30)."...";
+                                    }
+                             echo $descriptionProjet ;
                             ?>
                             </td>
-                            <td>hjk</td>
-                            
-                            
-                            <td>jk</td>
-                            <td>
-                                <?php 
-                                // if(strlen($dateArticle) >20)
-                                //     {
-                                //         $dateArticle=substr($dateArticle,0,11)."..";
-                                //     }
-                                // echo $dateArticle ;
-                                ?>
+                            <td> 
+                            <?php echo $slug;?>
                             </td>
-                            <td><img src="" width="200px"; height="40px"></td>
+                            
+                            <td><img src="upload/<?php echo $imageProjet; ?>" style="width:100px;"></td>
                             <td>
-                            <!-- <a href="EditPost.php?Edit="> <span class="btn btn-warning">Edit</span></a> 
-                            <a href="DeletePost.php?delete="> <span class="btn btn-danger">Delete</span></a>  -->
+                            <a href="editProject.php?Edit=<?php echo $idProjet;?>"> <span class="btn btn-warning">Edit</span></a> 
+                            <a href="deletProjet.php?delete=<?php echo $idProjet;?>"> <span class="btn btn-danger">Delete</span></a> 
 
                             </td>
-                            <td><a href="../article.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                       
+                            <!-- <td><a href="../article.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
                         </tr>
-                        <!-- <?php
-                    //  }
-                    ?> -->
+                         <?php } ?> 
                     </table>
                     </div>
                 
