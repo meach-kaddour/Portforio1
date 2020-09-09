@@ -62,7 +62,7 @@ if(isset($_POST["Submit"])){
                         <ul id="side-menu" class="nav nav-pills nav stacked" >
                             <li ><a class="nav-link active " href="dash.php">Dashbord</a></li>
                             <li ><a class="nav-link " href="addNewProject">Ajouter un projet</a></li>
-                            <li ><a class="nav-link " href="technologie.php">Technologies</a></li>
+                            <li ><a class="nav-link " href="addTechno.php">Technologies</a></li>
                             <li><a class="nav-link" href="../index.php"> Acceder au site</a></li>
                             <li><a class="nav-link" href="logout.php">Logout</a></li>
                         </ul>
@@ -117,7 +117,7 @@ if(isset($_POST["Submit"])){
                                 
                                 </div>
                            
-                                <input class="btn btn-danger btn-block" type="submit" name="Submit" value="Modifier">
+                                <input class="btn btn-danger btn-block" type="submit" name="Submit" value="Supprimée Projet">
                             </fieldset>
 
                         </form>
