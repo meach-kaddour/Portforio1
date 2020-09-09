@@ -1,5 +1,7 @@
+
 <?php 
 include_once("include/include.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,7 +35,7 @@ include_once("include/include.php");
                         <ul id="side-menu" class="nav nav-pills nav stacked" >
                             <li ><a class="nav-link active" href="dash.php">Dashbord</a></li>
                             <li ><a class="nav-link" href="addNewProject">Ajouter un projet</a></li>
-                            <li ><a class="nav-link " href="technologie.php">Technologies</a></li>
+                            <li ><a class="nav-link " href="addTechno.php">Technologies</a></li>
                             <li><a class="nav-link" href="../index.php"> Acceder au site</a></li>
                             <li><a class="nav-link" href="logout.php">Logout</a></li>
                         </ul>
@@ -94,7 +96,7 @@ include_once("include/include.php");
                             ?>
                             </td>
                             <td> 
-                            <?php echo $slug;?>
+                            <?php echo $slug=substr($slug,0,30);?>
                             </td>
                             
                             <td><img src="upload/<?php echo $imageProjet; ?>" style="width:100px;"></td>
@@ -108,11 +110,61 @@ include_once("include/include.php");
                          <?php } ?> 
                     </table>
                     </div>
+                    <!-- table technology -->
+                    <div class="row">
+                        <h1 class="text-center">Technologies</h1>
+                    </div>
+                   
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover">
+                            <tr>
+                                <th>No</th>
+                                <th>Nom de technologie</th>
+                                <th>Niveau</th>
+                                <th>Image</th>
+                                <th>Actions</th>
+                            </tr>
+
+                        <?php
+                         global $db;
+                         $Query="SELECT *FROM technologies ";
+                         $Execute = $db->query($Query);
+                         $srN=0;
+                         
+                         foreach ($Execute as $execute){
+                            $idTechno=$execute['id_technologies'];
+                            $nameTechno=$execute['name_technologies'];
+                            $imageTechno=$execute['image_technologies'];
+                            $niveauTechno=$execute['niveau_technologies'];
+                           
+            
+                            $srN++;
+
+                        ?>
+                            <tr>
+                                <td><?php echo $srN;?></td>
+
+                                <td><?php echo $nameTechno;?></td>
+
+                                <td> <?php echo $slug=substr($slug,0,30);?> </td>
+                                
+                                <td><img src="upload/<?php echo $imageTechno; ?>" style="width:100px;"></td>
+                                <td>
+                                <a href="deletTechno.php?delete=<?php echo $idTechno;?>"> <span class="btn btn-danger">Delete</span></a> 
+
+                                </td>
+                                <!-- <td><a href="../article.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
+                            </tr>
+                         <?php } ?> 
+                        </table>
+                    </div>
+
                 
 
                 </div>
 
         </div>       
+    </div>       
 
     <!-- End Main area -->
 </div>
