@@ -4,30 +4,20 @@ include_once("include/include.php");
 if(isset($_POST["Submit"])){
         $name = $_POST["name"];        
         $Image = $_POST["Image"];
-        $urlProject = $_POST["url"];
-        $description = $_POST["description"];
+        $niveau = $_POST["niveau"];
+       
 
         $Image = $_FILES["Image"]["name"];
         $Target= "Upload/".basename($_FILES["Image"]["name"]);
 
-
-        if(empty($name) ||empty($urlProject) ||empty($Image)){
-            $_SESSION["ErrorMessage"]="Tous les champs Doit Renseignés";
-            Redirect_to("editProject.php");
-        }elseif (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$urlProject)) {
-            $_SESSION["ErrorMessage"]="invalid url";
-            Redirect_to("dash.php");
-         }  
-        else{
             global $db;
-            $urlQuery=$_GET['Edit'];
-            $Query="UPDATE projects set name_projet='$name',image_projet='$Image',description_projet='$description',slug='$urlProject' 
-            WHERE id_projet='$urlQuery'";
+            $deleteUrl=$_GET['delete'];
+            $Query="DELETE FROM technologies WHERE id_technologies='$deleteUrl'";
             $Execute = mysqli_query($db,$Query);
             move_uploaded_file($_FILES["Image"]["tmp_name"],$Target);
 
             if($Execute){
-                $_SESSION["successMessage"]= "Projet a été bien Modifie";
+                $_SESSION["successMessage"]= "technologie a été bien Supprimeé";
                 Redirect_to("dash.php");
 
             }else{
@@ -35,7 +25,7 @@ if(isset($_POST["Submit"])){
                 Redirect_to("dash.php");
             }
         }
-}
+
 ?>
 
 
@@ -81,7 +71,7 @@ if(isset($_POST["Submit"])){
             <!-- Main area -->
                 <div class="col-sm-10">
                     <br>
-                    <h2>Modifier Projets</h2>
+                    <h2>Supperssions Des Projets</h2>
                     <hr>
                     <?php
                         echo Message(); 
@@ -92,42 +82,37 @@ if(isset($_POST["Submit"])){
                         <div>
                         <?php 
                              $db = new mysqli('127.0.0.1', 'root', '', 'phpcms');
-                             $urlQuery=$_GET['Edit'];
-                             $Query=" SELECT * FROM projects WHERE id_projet ='$urlQuery'";
+                             $urlQuery=$_GET['delete'];
+                             $Query=" SELECT * FROM technologies WHERE id_technologies ='$urlQuery'";
                              $Execute = $db->query($Query);
                              foreach ($Execute as $execute){
-                                $idProjet=$execute['id_projet'];
-                                $nameProjet=$execute['name_projet'];
-                                $imageProjet=$execute['image_projet'];
-                                $descriptionProjet=$execute['description_projet'];
-                                $slug=$execute['slug'];
+                                $idTechno=$execute['id_technologies'];
+                                $nameTechno=$execute['name_technologies'];
+                                $imageTechno=$execute['image_technologies'];
+                                $niveauTechno=$execute['niveau_technologies'];
                             }
                         ?>
-                        <form action="editProject.php?Edit=<?php echo $urlQuery ;?>" method="POST" enctype="multipart/form-data">
+                        <form action="deletTechno.php?delete=<?php echo $urlQuery ;?>" method="POST" enctype="multipart/form-data">
                             <fieldset>
                                 <div class="form-group">
                                     <label for="name"><span class="fieldInfo">Name:</span></label>
-                                    <input value="<?php echo $nameProjet; ?>" type="text" class ="form-control" name="name" id="name"placeholder="Nom DeProjet">
+                                    <input value="<?php echo $nameTechno; ?>" type="text" class ="form-control" name="name" id="name"placeholder="">
                                 
                                 </div>
                             
                                 <div class="form-group">
                                     <label for="Image"><span class="fieldInfo">Select Image:</span></label>
-                                    <input value="<?php echo $imageProjet; ?>" type="File" class ="form-control" name="Image" id="Image"placeholder="Select Image">
+                                    <input value="<?php echo $imageTechno; ?>" type="File" class ="form-control" name="Image" id="Image"placeholder="">
                                 
                                 </div>
                                 <div class="form-group">
                                     <label for="url"><span class="fieldInfo">Lien URL</span></label>
-                                    <input value="<?php echo $slug; ?>" type="text" class ="form-control" name="url" id="Title"placeholder="Lien URL">
+                                    <input value="<?php echo $niveauTechno; ?>" type="text" class ="form-control" name="url" id="Title"placeholder="">
                                 
                                 </div>
-                                <div class="form-group">
-                                    <label for="descrip"><span class="fieldInfo">Description De Projet</span></label>
-                                    <textarea  class ="form-control" name="description" type="text" id="description"><?php echo $descriptionProjet; ?></textarea>
                                 
-                                </div>
                            
-                                <input class="btn btn-warning btn-block" type="submit" name="Submit" value="Modifier">
+                                <input class="btn btn-danger btn-block" type="submit" name="Submit" value="Supprimée technology">
                             </fieldset>
 
                         </form>
@@ -150,3 +135,4 @@ if(isset($_POST["Submit"])){
 <script src="../js/script.js"></script>
 </body>
 </html>
+

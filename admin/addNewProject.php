@@ -71,7 +71,7 @@ if(isset($_POST["Submit"])){
                         <ul id="side-menu" class="nav nav-pills nav stacked" >
                             <li ><a class="nav-link " href="dash.php">Dashbord</a></li>
                             <li ><a class="nav-link active" href="addNewProject">Ajouter un projet</a></li>
-                            <li ><a class="nav-link " href="technologie.php">Technologies</a></li>
+                            <li ><a class="nav-link " href="addTechno.php">Technologies</a></li>
                             <li><a class="nav-link" href="../index.php"> Acceder au site</a></li>
                             <li><a class="nav-link" href="logout.php">Logout</a></li>
                         </ul>

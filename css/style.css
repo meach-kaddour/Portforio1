@@ -141,7 +141,7 @@ header {
 }
 
 header img {
-    width: 80px;
+    width: 100px;
 }
 
 header nav {
@@ -257,8 +257,8 @@ section.success {
 }
 
 .img-icon-about {
-    max-width: 10px;
-    max-height: 10px;
+    max-width: 30px;
+    max-height: 100px;
 }
 
 .fa {
@@ -338,15 +338,6 @@ hr {
     background-color: transparent;
     border: 1px solid #182c39;
 }
-
-
-/*  */
-
-
-/*  */
-
-
-/* ***** Footer ***** */
 
 #footer {
     background-color: #0DA3BC;
@@ -461,5 +452,108 @@ hr {
     header {
         padding: 2rem 1rem;
         width: 100%;
+    }
+}
+
+
+/* Start slide Section css */
+
+#slideshow {
+    margin: auto;
+    padding-top: 50px;
+    height: 300px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.slideshow-title {
+    font-family: 'Allerta Stencil';
+    font-size: 32px;
+    color: #fff;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 0%;
+    letter-spacing: 3px;
+    font-weight: 100;
+}
+
+.entire-content {
+    margin: auto;
+    width: 190px;
+    perspective: 1000px;
+    position: relative;
+    padding-top: 20px;
+}
+
+.content-carousel {
+    width: 100%;
+    position: absolute;
+    float: right;
+    animation: rotate 30s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.content-carousel:hover {
+    animation-play-state: paused;
+    cursor: pointer;
+}
+
+.content-carousel figure {
+    width: 100%;
+    height: 120px;
+    border: 1px solid #fff;
+    overflow: hidden;
+    position: absolute;
+}
+
+
+/* If you have more images let's say n ones. Then you need to duplicate below units to nth-child(n + 1), and you need to fix the new degree numbers in rotateY() as well. The formula is 360deg / n for each increment. The first child will always be 0 deg and the last will be 360deg. */
+
+.content-carousel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(300px);
+}
+
+.content-carousel figure:nth-child(2) {
+    transform: rotateY(90deg) translateZ(300px);
+}
+
+.content-carousel figure:nth-child(3) {
+    transform: rotateY(180deg) translateZ(300px);
+}
+
+.content-carousel figure:nth-child(4) {
+    transform: rotateY(270deg) translateZ(300px);
+}
+
+.content-carousel figure:nth-child(5) {
+    transform: rotateY(360deg) translateZ(300px);
+}
+
+.shadow {
+    position: absolute;
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 5px;
+}
+
+.content-carousel img {
+    image-rendering: auto;
+    transition: all 300ms;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.content-carousel img:hover {
+    transform: scale(1.2);
+    transition: all 300ms;
+    opacity: 0.7;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateY(0deg);
+    }
+    to {
+        transform: rotateY(360deg);
     }
 }

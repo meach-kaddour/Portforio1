@@ -1,5 +1,23 @@
 <?php
 session_start();
+// include("include/config.php");
+// include("include/db.php");
+
+
+
+// $user_check = $_SESSION['login_admin'];
+   
+// $ses_sql = mysqli_query($db,"select adminName from admins where adminName = '$user_check' ");
+   
+// $row = mysqli_fetch_array($ses_sql,MYSQLI_ASSOC);
+   
+// $login_session = $row['adminName'];
+
+
+// if(!isset($_SESSION['login_admin'])){
+//     header("location:../login.php");
+// }
+
 function Message(){
     if(isset($_SESSION["ErrorMessage"])){
         $output="<div class=\"alert alert-danger\">";

@@ -3,6 +3,56 @@ require('template/header.php');
 ?>
  
 <!--   End header -->
+<section id="technologies">
+<div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2>Technologies Maitrisé</h2>
+        <hr class="star-primary"></hr>       
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+       
+        <section id="slideshow">
+          <div class="entire-content">
+            <!-- Php here -->
+                <?php
+                    global $db;
+                    $Query="SELECT *FROM technologies LIMIT 5 ";
+                    $Execute = $db->query($Query);
+                    
+                                    
+                    foreach ($Execute as $execute){
+                      $idTechno=$execute['id_technologies'];
+                      $nameTechno=$execute['name_technologies'];
+                      $imageTechno=$execute['image_technologies'];
+                      $niveauTechno=$execute['niveau_technologies'];
+                    
+
+                ?>
+                <!--  -->
+              <div class="content-carousel">
+                
+                  <figure class="shadow"><img src="admin/upload/<?php echo $imageTechno; ?>" alt="Caption 1"/></figure>
+                  <!-- <figure class="shadow"><img src="https://images.pexels.com/photos/68704/pexels-photo-68704.jpeg?cs=rgb" alt="Caption 2"/></figure>
+                  <figure class="shadow"><img src="https://images.pexels.com/photos/2749090/pexels-photo-2749090.jpeg?cs=rgb" alt="Caption 3"/></figure>
+                  <figure class="shadow"><img src="https://images.pexels.com/photos/2319032/pexels-photo-2319032.jpeg?cs=rgb" alt="Caption 4"/></figure>
+                  <figure class="shadow"><img src="https://images.pexels.com/photos/2319032/pexels-photo-2319032.jpeg?cs=rgb" alt="Caption 4"/></figure> -->
+              </div>
+                    <?php }?>
+          </div>
+        </section>
+       
+      </div>
+    </div>
+
+
+
+
+
+</div>
+</section>
 
 <!--   Startn section projects -->
 <section id="project">
@@ -32,7 +82,7 @@ require('template/header.php');
 
       <div class="col-md-4">
         <div class="card">
-          <img src="admin/upload/<?php echo $imageProjet; ?>" class="card-img-top" alt="...">
+          <img src="admin/upload/<?php echo $imageProjet; ?>" class="card-img-top" alt="screen Project">
           <div class="card-body">
             <h5 class="card-title"><?php echo $nameProjet;?></h5>
             <p class="card-text">
