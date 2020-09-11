@@ -16,7 +16,9 @@ require('template/header.php');
        
         <section id="slideshow">
           <div class="entire-content">
-            <!-- Php here -->
+            
+              <div class="content-carousel">
+                <!-- Php here -->
                 <?php
                     global $db;
                     $Query="SELECT *FROM technologies LIMIT 5 ";
@@ -32,15 +34,14 @@ require('template/header.php');
 
                 ?>
                 <!--  -->
-              <div class="content-carousel">
                 
                   <figure class="shadow"><img src="admin/upload/<?php echo $imageTechno; ?>" alt="Caption 1"/></figure>
                   <!-- <figure class="shadow"><img src="https://images.pexels.com/photos/68704/pexels-photo-68704.jpeg?cs=rgb" alt="Caption 2"/></figure>
                   <figure class="shadow"><img src="https://images.pexels.com/photos/2749090/pexels-photo-2749090.jpeg?cs=rgb" alt="Caption 3"/></figure>
                   <figure class="shadow"><img src="https://images.pexels.com/photos/2319032/pexels-photo-2319032.jpeg?cs=rgb" alt="Caption 4"/></figure>
-                  <figure class="shadow"><img src="https://images.pexels.com/photos/2319032/pexels-photo-2319032.jpeg?cs=rgb" alt="Caption 4"/></figure> -->
+                 <?php }?> <figure class="shadow"><img src="https://images.pexels.com/photos/2319032/pexels-photo-2319032.jpeg?cs=rgb" alt="Caption 4"/></figure> -->
               </div>
-                    <?php }?>
+                    
           </div>
         </section>
        
@@ -81,7 +82,8 @@ require('template/header.php');
     ?>
 
       <div class="col-md-4">
-        <div class="card">
+        <div class="card shadow-sm p-3 mb-5  
+            bg-white rounded">
           <img src="admin/upload/<?php echo $imageProjet; ?>" class="card-img-top" alt="screen Project">
           <div class="card-body">
             <h5 class="card-title"><?php echo $nameProjet;?></h5>
@@ -89,7 +91,7 @@ require('template/header.php');
              <?php
                if(strlen($descriptionProjet) >60)
                   {
-                    $descriptionProjet=substr($descriptionProjet,0,200)."..";
+                    $descriptionProjet=substr($descriptionProjet,0,80)."..";
                   }
                 echo htmlentities($descriptionProjet) ;
              ?>
@@ -101,7 +103,7 @@ require('template/header.php');
         </div>
       </div>    
     
-    <div class="clearfix"></div>
+    <br><br>
     <?php } ?> 
   </div>
   
@@ -128,25 +130,25 @@ require('template/header.php');
     <div class="col-md-2 btns-social">
         <div class="col-md-3 col-sm-3 col-xs-2">
           <a href="img/cv.pdf" class="btn btn-lg-social btn-success btn-responsive">
-            <i class="fa fa-fire"> Télecharger CV</i> 
+            <i class=" img-icon-about fa fa-fire"> Télecharger CV</i> 
           </a>
         </div>
         <br>
         <div class="col-md-3 col-sm-3 col-xs-2">
           <a href="https://github.com/meach-kaddour" target="_blank" class="btn btn-lg-social btn-warning btn-responsive">
-            <i class="fa fa-github"> GitHub</i> 
+            <i class=" img-icon-about fa fa-github"> GitHub</i> 
           </a>
         </div>
         <br>
         <div class="col-md-3 col-sm-3 col-xs-2">
           <a href="https://www.linkedin.com/in/kaddour-meach-923300178/" target="_blank" class="btn btn-lg-social btn-dark btn-responsive">
-            <i class="fa fa-linkedin"> LinkdIn</i> 
+            <i class=" img-icon-about fa fa-linkedin"> LinkdIn</i> 
           </a>
         </div>
         <br>
         <div class="col-md-3 col-sm-3 col-xs-2">
           <a href="https://www.facebook.com/skoma.maache" target="_blank" class="btn btn-lg-social btn-primary btn-responsive">
-            <i class="fa fa-facebook-official"> Facebook</i> 
+            <i class=" img-icon-about fa fa-facebook-official"> Facebook</i> 
           </a>
         </div>
   </div>
@@ -279,14 +281,14 @@ require('template/header.php');
                     </form>
                   <br><br>
                   <div class="text-center text-md-left">
-                      <a class="btn  btn-lg text-light" onclick="document.getElementById('contact-form').submit();">Envoyer Votre Message</a>
+                      <a class=" btn-contact btn  btn-lg text-light" onclick="document.getElementById('contact-form').submit();">Envoyer Votre Message</a>
                   </div>
                 </div>
                 <!--Grid column-->
 
                 <div class="col-sm-4">
                   <div class="col-md-12 text-center">
-                    <ul class="list-unstyled mb-0">
+                    <ul class="list-unstyled mb-0 address">
                       <br><br>
 
                         <li><i class="fa fa-map-marker" aria-hidden="true"></i>

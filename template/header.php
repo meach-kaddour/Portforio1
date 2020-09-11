@@ -25,7 +25,7 @@
             <ul>
                 <li><a href="index.php"class="active">Home</a></li>
                 <li><a href="#project">Projects</a></li>
-                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="#contact">About Us</a></li>
                 <li><a href="login.php" >Login</a></li>
             </ul>
             <div class="drop-down">
@@ -38,7 +38,7 @@
                     <div>
                         <a href="index.php">Home</a>
                         <a href="project.php">Projects</a>
-                        <a href="contact.php">Contact Us</a>
+                        <a href="contact.php">About Us</a>
                         <a href="login.php">Login</a>
                     </div>
                 </div>
@@ -48,21 +48,20 @@
     </header>
     
     <header id="home">
-    <div class="container text-center">
-      <div class="row">
-          <div class="col-md-4">
-          <img src="img/moi.jpg" alt="Picture" class="img-moi" />
-
+      <div class="container text-center">
+        <div class="row">
+            <div class="col-md-4 pr-sm-5">
+              <img src="img/moi.jpg" alt="Picture" class="img-moi" />
+            </div>
+            <div class="col-md-8 pl-lg-5">
+                <div class="intro-text">
+                  <span class="name">Kaddour Meach</span>
+                  <hr class="star-light"></hr>
+                  <span class="skills">Développeur Web Apprennent</span>
+                </div>
           </div>
-        <div class="col-md-8">
-          <div class="intro-text">
-            <span class="name">Kaddour Meach</span>
-            <hr class="star-light"></hr>
-          <span class="skills">Développeur Web Apprennent</span>
         </div>
       </div>
-    </div>
-    </div>
-  </header>
+    </header>
 
   <!--   end navigation -->

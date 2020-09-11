@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 
     $query="SELECT * FROM admins WHERE adminName='$admin' AND passcode='$pass'";
     $execute=$db->query($query);
-    // $rows=mysqli_num_rows($excute);
+    
     if($execute==1){
         $_SESSION['admin_login']=$admin;
         header("location:../admin/dash.php");
