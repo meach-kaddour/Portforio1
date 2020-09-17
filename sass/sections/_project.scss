@@ -1,0 +1,102 @@
+%box-shadow {
+    box-shadow: 0px 0px 18px -3px rgba(143, 143, 143, .50);
+}
+
+%box-shadow-hover {
+    box-shadow: 0px 0px 20px -3px rgba(143, 143, 143, .75);
+}
+
+// -- Placeholder -- box shadow dark
+%box-shadow-dark {
+    box-shadow: 3px 3px 11px -3px rgba(0, 0, 0, .25);
+}
+
+%box-shadow-dark-hover {
+    box-shadow: 3px 3px 11px -3px rgba(0, 0, 0, .75);
+}
+
+// -- Class Default -- Box Shadow Default Class
+.box-shadow {
+    @extend %box-shadow;
+}
+
+// -- Class Dark -- Box Shadow Dark Class
+.box-shadow-dark {
+    @extend %box-shadow-dark;
+}
+
+#project {
+    padding: 5% auto;
+    @media screen and (max-width: $small) {
+        margin-top: 16rem;
+    }
+    .heading {
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $heading-color;
+        padding-bottom: 40px;
+        text-align: center;
+    }
+    .green-divider {
+        width: 100px;
+        height: 3px;
+        background: $heading-color;
+        margin: 10% auto 2%;
+    }
+    .card {
+        transition: .5s ease;
+        border-radius: 3px;
+        border: #28302e 3px solid;
+        height: 420px;
+        margin-bottom: 2%;
+        &_img-top {
+            border-bottom: solid 2px #09ccaf;
+            height: 200px;
+        }
+        &-body {
+            position: relative;
+            z-index: 0;
+            overflow: hidden;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+        &-title {
+            font-weight: 900;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        &-text {
+            height: 120px;
+            text-transform: capitalize;
+        }
+        &-footer {
+            padding: 4% 5%;
+            text-align: center;
+            background: #09ccaf;
+            text-transform: uppercase;
+            a {
+                color: #ffffff;
+                font-weight: 700;
+                svg {
+                    padding-left: 2%;
+                    width: 40px;
+                }
+            }
+        }
+        &-footer a:hover {
+            transition: .5s ease;
+            text-decoration: none;
+        }
+        &:hover {
+            @extend %box-shadow-hover;
+            border-color: darken($heading-color, 0%);
+            transform: scale(1.1);
+            .card-footer {
+                color: darken(#09ccaf, 15%);
+                border-color: darken(#09ccaf, 0%);
+                background-color: lighten(#09ccaf, 35%);
+            }
+        }
+    }
+}

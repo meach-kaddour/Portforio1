@@ -1,0 +1,58 @@
+        #contact {
+            // text-align: center;
+            .heading {
+                font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                text-transform: uppercase;
+                font-weight: 700;
+                color: $heading-color;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+            .green-divider {
+                width: 100px;
+                height: 3px;
+                background: $heading-color;
+                margin: 2% auto;
+            }
+            #contact-form::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 50%;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                background: #E9ECEF;
+                z-index: -1;
+            }
+            label {
+                text-transform: uppercase;
+                color: #fff;
+                padding: 1% 0;
+                font-size: 1.2rem;
+                font-weight: 800;
+            }
+            .btn-submit {
+                margin-top: 2rem;
+                text-transform: uppercase;
+                .btn-contact {
+                    padding: 2% 2%;
+                    color: #fff;
+                    background: $heading-color;
+                    font-weight: bold;
+                    border: none;
+                    border-radius: 2px;
+                    box-shadow: 1 0 2px 0px rgb(63, 63, 63);
+                    cursor: pointer;
+                }
+                .btn-contact:hover {
+                    transition: all .5s ease-in-out;
+                    width: 250px;
+                }
+            }
+            .contact-map {
+                border: 10px solid $heading-color;
+                background: $heading-color;
+            }
+        }

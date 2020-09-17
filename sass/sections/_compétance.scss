@@ -1,0 +1,28 @@
+#compétance {
+    text-align: center;
+    height: 40vh;
+    .heading {
+        font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $heading-color;
+        padding-bottom: 40px;
+    }
+    .green-divider {
+        width: 100px;
+        height: 3px;
+        background: $heading-color;
+        margin: 2% auto;
+    }
+    .progress {
+        height: 40px;
+        margin: 5% 3%;
+        backface-visibility: #ddd;
+        .progress-bar {
+            background: $heading-color;
+            h5 {
+                text-shadow: 1px 1px 1px #000;
+            }
+        }
+    }
+}

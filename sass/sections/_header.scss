@@ -1,0 +1,144 @@
+header {
+    width: 100%;
+    padding: .6rem 4rem;
+    background-color: black;
+    opacity: .9;
+    @media screen and (max-width: $small) {
+        padding: .5rem 1rem;
+        width: 100%;
+    }
+    @media screen and (max-width: $medium) {
+        margin: auto;
+    }
+    nav {
+        display: flex;
+        .nav-logo {
+            width: 70px;
+            height: 70px;
+            z-index: -5;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            justify-content: space-around;
+            font-weight: 700;
+            @media screen and (max-width: $medium) {
+                display: none;
+            }
+            li {
+                margin-left: 3rem;
+                position: relative;
+                a {
+                    color: #fff;
+                    font-weight: 700;
+                    letter-spacing: 1px;
+                    text-transform: uppercase;
+                }
+                a:hover {
+                    text-decoration: none;
+                    color: #0DA3BC;
+                }
+                .active {
+                    color: $acivtLinkcolor;
+                }
+            }
+        }
+        // toggle Menu pour tablet et phone
+        .drop-down {
+            display: none;
+            @media screen and (max-width: $medium) {
+                display: block;
+                margin-left: auto;
+                align-self: center;
+                position: relative;
+            }
+            .drop-down__put {
+                position: absolute;
+                height: 50px;
+                width: 50px;
+                right: 5px;
+                bottom: 10px;
+                opacity: 0;
+                cursor: pointer;
+                z-index: 2;
+            }
+            .drop-down__hamburger {
+                position: relative;
+                width: 30px;
+                height: 30px;
+                .drop-down__hamburger--close {
+                    position: absolute;
+                    visibility: hidden;
+                }
+                .drop-down__hamburger--symbole {
+                    position: absolute;
+                    top: 4px;
+                    left: -8px;
+                }
+            }
+            .drop-down__menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 60px;
+                bottom: 0;
+                margin: 6rem auto;
+                height: 240px;
+                width: 300px;
+                visibility: hidden;
+                z-index: 99 !important;
+                transform: scale(0);
+                box-shadow: 1px 3px 20px rgba(0, 0, 0, 0.2);
+                background: #000;
+                @media screen and (max-width: $small) {
+                    top: 0;
+                    left: 0;
+                    right: 0px;
+                    bottom: 0;
+                }
+                div {
+                    opacity: 1;
+                    z-index: 2;
+                    height: 100%;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    margin-top: 2%;
+                    a {
+                        margin: 1rem 0;
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+                        color: $bgcolor1;
+                        font-weight: 700;
+                        letter-spacing: 1px;
+                        text-transform: uppercase;
+                    }
+                    a:hover {
+                        text-decoration: none;
+                    }
+                    a:last-child {
+                        border-top: 1px solid $bgcolor1;
+                        padding-top: 1rem;
+                    }
+                }
+            }
+        }
+        .drop-down__put:checked~.drop-down__menu {
+            visibility: visible;
+            transform: scale(1);
+            transition-duration: 400ms;
+        }
+        .drop-down__put:checked~.drop-down__menu>div {
+            opacity: 1;
+        }
+        .drop-down__put:checked~.drop-down__hamburger .drop-down__hamburger--symbole {
+            visibility: hidden;
+        }
+        .drop-down__put:checked~.drop-down__hamburger .drop-down__hamburger--close {
+            visibility: visible;
+        }
+    }
+}
