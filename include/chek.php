@@ -1,25 +1,23 @@
 <?php
 session_start();
 
-if($_SERVER['REQUEST_METHOD']=='POST')
+if(isset($_POST['submit']))
 {
     $admin=$_POST['username'];
     $pass=$_POST['Password'];
 
-    include("connection.php");
+    require 'connection.php';
 
-    $query="SELECT * FROM admins WHERE adminName='$admin' AND passcode='$pass'";
-    $execute=$db->query($query);
+    $db = Database::connect();
+
+    $query="SELECT * FROM admins WHERE adminName='".$admin."' AND passcode='".$pass."' LIMIT 1";
+    $statement=$db->query($query);
     
-    if($execute==1){
+    if($statement==1){
         $_SESSION['admin_login']=$admin;
         header("location:../admin/dash.php");
     }else{
         echo 'wrong admin';
     }
 
-}
-else
-{
-    echo "wrong admin";
 }

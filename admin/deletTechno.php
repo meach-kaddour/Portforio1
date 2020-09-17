@@ -71,7 +71,7 @@ if(isset($_POST["Submit"])){
             <!-- Main area -->
                 <div class="col-sm-10">
                     <br>
-                    <h2>Supperssions Des Projets</h2>
+                    <h2>Supperssions Des technology</h2>
                     <hr>
                     <?php
                         echo Message(); 

@@ -105,7 +105,7 @@ include_once("include/include.php");
                             <a href="deletProjet.php?delete=<?php echo $idProjet;?>"> <span class="btn btn-danger">Delete</span></a> 
 
                             </td>
-                            <!-- <td><a href="../article.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
+                            <!-- <td><a href="../projects.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
                         </tr>
                          <?php } ?> 
                     </table>

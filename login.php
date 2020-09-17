@@ -48,11 +48,11 @@
                                 <div class="form-group">
                                 <label for="username"><span class="fieldInfo">Username :</span></label>
                                 
-                                <input class ="form-control" type="text" name="username" id="username"placeholder="Username">                                
+                                <input class ="form-control" type="text" name="username" id="username"placeholder="Username" required>                                
                                 </div>
                                 <div class="form-group">
                                 <label for="Password"><span class="fieldInfo">Password:</span></label>
-                                <input class ="form-control" name="Password" id="Password" type="Password" placeholder="Password">
+                                <input class ="form-control" name="Password" id="Password" type="Password" placeholder="Password" required>
                                 
                                 </div>
                                 

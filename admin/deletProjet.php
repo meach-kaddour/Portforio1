@@ -1,14 +1,16 @@
+
 <?php 
 include_once("include/include.php");
 
-if(isset($_POST["Submit"])){
-        $name = $_POST["name"];        
-        $Image = $_POST["Image"];
-        $urlProject = $_POST["url"];
-        $description = $_POST["description"];
+if(isset($_POST["Submit"]))
+        {
+            $name = $_POST["name"];        
+            $Image = $_POST["Image"];
+            $urlProject = $_POST["url"];
+            $description = $_POST["description"];
 
-        $Image = $_FILES["Image"]["name"];
-        $Target= "Upload/".basename($_FILES["Image"]["name"]);
+            $Image = $_FILES["Image"]["name"];
+            $Target= "Upload/".basename($_FILES["Image"]["name"]);
 
             global $db;
             $deleteUrl=$_GET['delete'];
