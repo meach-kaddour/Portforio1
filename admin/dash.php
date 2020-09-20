@@ -1,8 +1,8 @@
 
 <?php 
-include_once("include/include.php");
-
+include("../include/session.php");
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,9 +10,10 @@ include_once("include/include.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <!-- Link To Boostrap CSS -->
-    <link rel="stylesheet" href="../css/boot.css">
+    <link rel="stylesheet" href="../asset/css/boot.css">
     <!-- Link To CSS -->
-    <link rel="stylesheet" href="../css/styleadmin.css">
+    <link rel="stylesheet" href="../asset/css/styleadmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
@@ -21,7 +22,7 @@ include_once("include/include.php");
         <header class="row">
             <nav class="col-md-12">
                 <div class="row">
-                <div class="col-md-8 text-dark"><img src="../img/logo.png"  class="nav-brand"alt="logo">
+                <div class="col-md-8 text-dark"><img src="../asset/img/logo.png"  class="nav-brand"alt="logo">
                 <h1 class="inline">Admin Dashboard</h1>
                 </div>
                 </div>
@@ -33,11 +34,11 @@ include_once("include/include.php");
             <!-- aside-area -->
                 <div class="col-sm-2">  
                         <ul id="side-menu" class="nav nav-pills nav stacked" >
-                            <li ><a class="nav-link active" href="dash.php">Dashbord</a></li>
-                            <li ><a class="nav-link" href="addNewProject">Ajouter un projet</a></li>
-                            <li ><a class="nav-link " href="addTechno.php">Technologies</a></li>
-                            <li><a class="nav-link" href="../index.php"> Acceder au site</a></li>
-                            <li><a class="nav-link" href="logout.php">Logout</a></li>
+                            <li ><a class="nav-link active" href="dash.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Dashbord</a></li>
+                            <li ><a class="nav-link" href="addNewProject"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Ajouter un projet</a></li>
+                            <li ><a class="nav-link " href="addTechno.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Technologies</a></li>
+                            <li><a class="nav-link" href="../index.php"><i class="fa fa-eye" aria-hidden="true"></i> &nbsp;Acceder au site</a></li>
+                            <li><a class="nav-link" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
                         </ul>
                 </div>
             <!-- End aside area -->
@@ -64,7 +65,8 @@ include_once("include/include.php");
                             </tr>
 
                         <?php
-                         global $db;
+                         require '../include/connection.php';
+                         $db = Database::connect();
                          $Query="SELECT *FROM projects  ";
                          $Execute = $db->query($Query);
                          $srN=0;
@@ -107,7 +109,10 @@ include_once("include/include.php");
                             </td>
                             <!-- <td><a href="../projects.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
                         </tr>
-                         <?php } ?> 
+                         <?php 
+                         }  
+                         Database::disconnect();
+                         ?>
                     </table>
                     </div>
                     <!-- table technology -->
@@ -126,7 +131,7 @@ include_once("include/include.php");
                             </tr>
 
                         <?php
-                         global $db;
+                         $db = Database::connect();
                          $Query="SELECT *FROM technologies ";
                          $Execute = $db->query($Query);
                          $srN=0;
@@ -155,7 +160,9 @@ include_once("include/include.php");
                                 </td>
                                 <!-- <td><a href="../article.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
                             </tr>
-                         <?php } ?> 
+                         <?php } 
+                         Database::disconnect();
+                         ?> 
                         </table>
                     </div>
 

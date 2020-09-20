@@ -8,7 +8,7 @@ require('template/header.php');
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
-              <img src="img/moi.jpg" alt="Picture" class="img-moi" />
+              <img src="asset/img/moi.jpg" alt="Picture" class="img-moi" />
             </div>
             <div class="col-md-6">
                 <div class="intro-text">
@@ -16,7 +16,7 @@ require('template/header.php');
                   <hr class="star-light">
                   <h3>Développeur web</h3>
                   
-                  <a href="img/cv.pdf" class="my-Button" Download>Télecharger Mon CV</a>
+                  <a href="asset/img/cv.pdf" class="my-Button" Download>Télecharger Mon CV</a>
                   
                 </div>
             </div>
@@ -88,7 +88,7 @@ require('template/header.php');
               <?php
                 require 'include/connection.php';
                 $db = Database::connect();
-                $Query="SELECT *FROM projects LIMIT 6 ";
+                $Query="SELECT *FROM projects LIMIT 8 ";
                 $Execute = $db->query($Query);
                 $projects = $Execute->fetchAll();
                                                 

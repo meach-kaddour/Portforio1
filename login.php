@@ -1,81 +1,108 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>Login To Admin Panel</title>
- 
-
-<!-- Bootstrap core CSS -->
-<link href="css/boot.css" rel="stylesheet">
-<!-- custom CSS link -->
- <!-- <link href="../css/adminstyle.css" rel="stylesheet">
- <link href="../css/style.css" rel="stylesheet"> -->
-
-<style>
-    body{
-        background:#ffffff;
-    }
-    .col-sm-4{
-        margin:auto;
-        width:50%;
-    }
-    .text-center{
-        margin-bottom:3em;
-    }
-</style>   
-</head>
-<body>       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login Form Admin</title>
     
-    <div class="container-fluid">
-        <div class="row">    
-        <!-- End aside area -->
-            <div class="col-sm-4 ">
-                    <!-- <?php
-                        // echo Message(); 
-                        // echo successMessage();
-                    ?> -->
-                    <br><br><br><br>
-                    <h2 class="text-center">Login</h2>
-                    <hr>
-                    
-                    <br> 
-<?php
-//  echo htmlspecialchars($_SERVER['PHP_SELF']); 
- ?>
-                        <div>
-                        <form action="include/chek.php" method="POST">
-                                <fieldset>
-                                <div class="form-group">
-                                <label for="username"><span class="fieldInfo">Username :</span></label>
-                                
-                                <input class ="form-control" type="text" name="username" id="username"placeholder="Username" required>                                
-                                </div>
-                                <div class="form-group">
-                                <label for="Password"><span class="fieldInfo">Password:</span></label>
-                                <input class ="form-control" name="Password" id="Password" type="Password" placeholder="Password" required>
-                                
-                                </div>
-                                
-                                
-                                <br>
-                                <input class="btn btn-success btn-block" type="submit" name="submit" value="Login">
-                                </fieldset>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            background-image: url(asset/img/bg.png);
+            background-size: cover;
+            /* background-position: center; */
+        }
+        
+        .login-box {
+            width: 320px;
+            height: 360px;
+            background: #09CCAF;
+            color: #fff;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            box-sizing: border-box;
+            padding: 70px 30px;
+        }
+        
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            position: absolute;
+            top: -50px;
+            left: calc(50% - 50px);
+        }
+        
+        h1 {
+            margin: 0;
+            padding: 0;
+            font-size: 22px;
+            text-align: center;
+        }
+        
+        .login-box p {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+        }
+        
+        .login-box input {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .login-box input[type="text"],
+        input[type="password"] {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            height: 40px;
+            color: #fff;
+            font-size: 1em;
+        }
+        
+        .login-box input[type="submit"] {
+            margin-top:10%;
+            border: none;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            background-color: #1c8adb;
+            font-size: 18px;
+            border-radius: 20px;
+        }
+        
+        .login-box input[type="submit"]:hover {
+            background: #39dc79;
+            color: #000;
+            cursor: pointer;
+        }
+        
+        
+    </style>
+</head>
 
-                        </form>
-                        </div>
-                        <br>
-                        
-            </div>
-        </div>
+<body>
+    <div class='login-box'>
+        <img src="asset/img/logo.png" alt="Login">
+        <br>
+        <form  action="include/chek.php" method="post">
+            <p>Username</p>
+            <input type="text" name="username" placeholder="Entrer username">
+            <p>Password</p>
 
+            <input type="password" name="password" placeholder="Entrer password">
+            <input type="submit" name="submit" value="login">
+            
+        </form>
 
     </div>
-    <br><br><br><br>
-    
 
-
-<!-- JS, Popper.js, and jQuery -->
-<script src="js/scriptjs"></script>
 </body>
+
 </html>
- 
