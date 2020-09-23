@@ -1,5 +1,5 @@
 <?php
-  include_once("include/session.php");
+  include("include/session.php");
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="asset/css/boot.css">
     <!-- Link To  CSS  global style -->
     <link rel="stylesheet" href="asset/css/main.css">
+    
+
     <!-- Link To Font Awsome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -21,11 +23,18 @@
     
 <body>
   <!--  begin navigation  -->
+    <div>
+       <?php
+        echo Message(); 
+        echo successMessage();
+       ?>
+    </div>
   
   
    <header>
         <nav>
-            <img src="asset/img/logo.png" class="nav-logo" alt="logo">
+            <a href="index.php"><img src="asset/img/logo.png" class="nav-logo" alt="logo"></a>
+            
             <ul class="nav-menu">
                 <li><a href="index.php" class="link ">Home</a></li>
                 <li><a href="#compétance" class="link">Compétance</a></li>

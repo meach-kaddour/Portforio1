@@ -1,6 +1,11 @@
 
 <?php 
 include("../include/session.php");
+if(!isset($_SESSION['username']))
+	{
+		Redirect_to('../login.php');
+		exit;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +38,7 @@ include("../include/session.php");
         <div class="row">
             <!-- aside-area -->
                 <div class="col-sm-2">  
-                        <ul id="side-menu" class="nav nav-pills nav stacked" >
+                        <ul id="side-menu" class="nav" >
                             <li ><a class="nav-link active" href="dash.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Dashbord</a></li>
                             <li ><a class="nav-link" href="addNewProject"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Ajouter un projet</a></li>
                             <li ><a class="nav-link " href="addTechno.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Technologies</a></li>
@@ -90,7 +95,7 @@ include("../include/session.php");
                             
                             <td style="color:#5E5fEB">
                                 <?php
-                                 if(strlen($descriptionProjet) >60)
+                                 if(strlen($descriptionProjet) >200)
                                     {
                                         $descriptionProjet=substr($descriptionProjet,0,30)."...";
                                     }
@@ -102,10 +107,10 @@ include("../include/session.php");
                             </td>
                             
                             <td><img src="upload/<?php echo $imageProjet; ?>" style="width:100px;"></td>
-                            <td>
+                            <td style='width:200px'>
                             <a href="editProject.php?Edit=<?php echo $idProjet;?>"> <span class="btn btn-warning">Edit</span></a> 
                             <a href="deletProjet.php?delete=<?php echo $idProjet;?>"> <span class="btn btn-danger">Delete</span></a> 
-
+                            
                             </td>
                             <!-- <td><a href="../projects.php?id=" target="_blank"><span class="btn btn-primary">Live Preview</span></a></td>                        -->
                         </tr>
@@ -151,7 +156,7 @@ include("../include/session.php");
 
                                 <td><?php echo $nameTechno;?></td>
 
-                                <td> <?php echo $slug=substr($slug,0,30);?> </td>
+                                <td> <?php echo $niveauTechno;?> </td>
                                 
                                 <td><img src="upload/<?php echo $imageTechno; ?>" style="width:100px;"></td>
                                 <td>

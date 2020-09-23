@@ -2,6 +2,12 @@
 require('template/header.php');
 ?>
 <!--   End header -->
+    <div>
+       <?php
+        echo Message(); 
+        echo successMessage();
+       ?>
+    </div>
 
 <!-- Start section About Me -->
 <section id="about">
@@ -31,7 +37,7 @@ require('template/header.php');
 <section  id="compétance">
   <div class="green-divider"></div>
   <div class="heading">
-    <h2>Compétances</h2>
+    <h2>Compétences </h2>
   </div>
   <div class="container">
     <div class="row">
@@ -81,9 +87,9 @@ require('template/header.php');
 <section id="project">
       <div class="green-divider"></div>
       <div class="heading">
-        <h2>Projects</h2>
+        <h2>Projets Réalisés </h2>
       </div>
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
               <?php
                 require 'include/connection.php';
@@ -100,7 +106,7 @@ require('template/header.php');
                   $slug=$project['slug'];
               ?>
 
-            <div class="col-md-4 col-lg-3 col-sm-12">
+            <div class="col-md-6 col-lg-4 col-sm-12">
               <div class="card card-animate ">
                   <img src="admin/upload/<?php echo $imageProjet;?>" class="card-img-top" alt="screen Project">
                   <div class="card-body">
@@ -140,12 +146,7 @@ require('template/header.php');
     <h2>Contacter-Moi</h2>
   </div>
   <div class="container-fluid">           
-    <div>
-       <?php
-        echo Message(); 
-        echo successMessage();
-       ?>
-    </div>
+    
     <div class="row">                    
                 <!--Grid column-->
         <div class="col-sm-8 mb-md-0 ">

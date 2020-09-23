@@ -1,5 +1,11 @@
 <?php 
 include_once("include/include.php");
+if(!isset($_SESSION['username']))
+	{
+		Redirect_to('../login.php');
+		exit;
+    }
+
 
 if(isset($_POST["Submit"])){
         $name = $_POST["name"];        

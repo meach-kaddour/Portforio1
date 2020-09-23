@@ -1,3 +1,6 @@
+<?php
+include("include/session.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,16 +91,23 @@
 </head>
 
 <body>
+
     <div class='login-box'>
         <img src="asset/img/logo.png" alt="Login">
         <br>
+        <div>
+            <?php
+                echo Message(); 
+                echo successMessage();
+            ?>
+        </div>
         <form  action="include/chek.php" method="post">
             <p>Username</p>
-            <input type="text" name="username" placeholder="Entrer username">
+            <input type="text" name="username" placeholder="Entrer username" required>
             <p>Password</p>
 
-            <input type="password" name="password" placeholder="Entrer password">
-            <input type="submit" name="submit" value="login">
+            <input type="password" name="Password" placeholder="Entrer password" required>
+            <input type="submit" name="submit" value="login" >
             
         </form>
 

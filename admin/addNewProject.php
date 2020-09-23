@@ -1,5 +1,11 @@
 <?php 
 include("include/include.php");
+if(!isset($_SESSION['username']))
+	{
+		Redirect_to('../login.php');
+		exit;
+    }
+
 
 if(isset($_POST["Submit"])){
         $name = $_POST["name"];        
@@ -22,7 +28,7 @@ if(isset($_POST["Submit"])){
             global $db;
             $Query="INSERT INTO  projects (name_projet,image_projet,description_projet,slug)
             VALUES ('$name','$Image','$description','$urlProject')";
-            $Execute = mysqli_query($db,$Query);
+            $Execute = $db->query($Query);
             move_uploaded_file($_FILES["Image"]["tmp_name"],$Target);
 
             if($Execute){
@@ -67,9 +73,9 @@ if(isset($_POST["Submit"])){
         <div class="row">
             <!-- aside-area -->
                 <div class="col-sm-2">  
-                        <ul id="side-menu" class="nav nav-pills nav stacked" >
-                            <li ><a class="nav-link active" href="dash.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Dashbord</a></li>
-                            <li ><a class="nav-link" href="addNewProject"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Ajouter un projet</a></li>
+                        <ul id="side-menu" class="nav" >
+                            <li ><a class="nav-link " href="dash.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;Dashbord</a></li>
+                            <li ><a class="nav-link active" href="addNewProject"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;Ajouter un projet</a></li>
                             <li ><a class="nav-link " href="addTechno.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Technologies</a></li>
                             <li><a class="nav-link" href="../index.php"><i class="fa fa-eye" aria-hidden="true"></i> &nbsp;Acceder au site</a></li>
                             <li><a class="nav-link" href="logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;Logout</a></li>
